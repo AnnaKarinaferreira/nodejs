@@ -24,9 +24,7 @@ const checkAuth = function(req,res,next){
     }
 }
 app.use(checkAuth)
-app.get('users/add', (req, res)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  => {
-    res.sendFile(`${basepath}/forms.html`)
-})
+
 app.post('/users/save', (req, res) => {
     console.log(req.body)
     const name = req.body.name
@@ -36,16 +34,16 @@ app.post('/users/save', (req, res) => {
     console.log(email)
 })
 //retorna um valor
-app.get('/users/:id', (req, res) => {
+app.get('/users/add', (req, res) => {
 
     //resgatar parametros do url
-    const id = req.params.id
+    const add = req.params.add
 
     //resgatar o usuario do banco
-    console.log(`Estamos buscando o usuario: $(id)`) 
+    console.log(`Estamos buscando o usuario: $(add)`) 
 
     //senfile:trasferir arquivos//basepath: especifica a pasta raiz
-    res.sendFile(`${basepath}/users.html`) 
+    res.sendFile(`${basepath}/forms.html`) 
 })
 
 app.get('/', (req, res) =>{
